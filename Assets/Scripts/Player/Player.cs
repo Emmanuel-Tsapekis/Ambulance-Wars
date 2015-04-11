@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
 	public string playerName;// { get; set; }
 	public int playerNumber { get; set; }
 	public int score = 0;
+	public bool pickedVictim = false;
 	public Vector3 startPosition;
 	public LayerMask obstacleMask;
 
@@ -232,5 +233,15 @@ public class Player : MonoBehaviour {
 	[RPC]
 	void incrementScore(){
 		++score;
+	}
+
+	[RPC]
+	void pickedUpAVictim(){
+		pickedVictim = true;
+	}
+
+	[RPC]
+	void droppedAVictim(){
+		pickedVictim = true;
 	}
 }
