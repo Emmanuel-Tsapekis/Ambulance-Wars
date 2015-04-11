@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{60823814-C17C-5ED4-2628-F16DAD878027}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>G:/Unity/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>G:/Unity/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Art\ZRNAssets\005339_08932_25_14\Scripts\AmbientController.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\005339_08932_25_14\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\005339_08932_25_14\Scripts\FlyThroughController.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\005339_08932_25_14\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\005339_08932_25_14\Scripts\Util\SetFPS.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\005339_08932_25_14\Scripts\Util\ViewFPS.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\005339_08932_25_14\Scripts\ZRNGUIController.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\Cars\Scripts\AICarMove.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\CameraAction.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\GUIController.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\GUIControllerFlying.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QueryAnimationController.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QueryEmotionalController.cs" />
+     <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QuerySoundController.cs" />
+     <Compile Include="Assets\Scripts\Movement\Align.cs" />
+     <Compile Include="Assets\Scripts\Movement\Arrive.cs" />
+     <Compile Include="Assets\Scripts\Movement\FlockingBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Movement\FlockingSeparation.cs" />
+     <Compile Include="Assets\Scripts\Movement\Seek.cs" />
+     <Compile Include="Assets\Scripts\Movement\SteeringAgent.cs" />
+     <Compile Include="Assets\Scripts\Movement\SteeringBehavior.cs" />
+     <Compile Include="Assets\Scripts\Networking\LobbyManager.cs" />
+     <Compile Include="Assets\Scripts\Networking\NetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Pathfinding\Graph.cs" />
+     <Compile Include="Assets\Scripts\Pathfinding\Grid.cs" />
+     <Compile Include="Assets\Scripts\Pathfinding\Node.cs" />
+     <Compile Include="Assets\Scripts\Pathfinding\NodeToroidalPairs.cs" />
+     <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\cameraSetup.cs" />
+     <None Include="Assets\Art\ZRNAssets\license_en.txt" />
+     <None Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Shaders\PQ_Skin.shader" />
+     <None Include="Assets\Art\ZRNAssets\license_jp.txt" />
+     <None Include="Assets\Art\ZRNAssets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Art\ZRNAssets\005339_08932_25_14\Shaders\su_Double_and_Clip.shader" />
+     <None Include="Assets\Art\ZRNAssets\PQAssets\license_jp.txt" />
+     <None Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Shaders\PQ_TransBlue.shader" />
+     <None Include="Assets\Art\ZRNAssets\005339_08932_25_14\Shaders\su_VertexCol_1UV_Single.shader" />
+     <None Include="Assets\Art\ZRNAssets\PQAssets\license_en.txt" />
+     <None Include="Assets\Art\ambulance\archibase.net.txt" />
+     <None Include="Assets\Art\ZRNAssets\005339_08932_25_14\Documents\ReadMe.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>G:/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
