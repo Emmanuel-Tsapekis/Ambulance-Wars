@@ -166,7 +166,7 @@ public class Player : MonoBehaviour {
 	/////////////////////////////
 	void visitNode(Node node) {
 	foreach(Node neighbour in node.neighbours) {
-			if (neighbour) {
+			if (neighbour && !Physics.Linecast(node.transform.position,neighbour.transform.position,obstacleMask)) {
 				if (!closedList.Contains (neighbour)) {
 					float totalCost = 0;
 					float costSoFar = node.costSoFar + neighbour.getWeight(node);//distance from parent
