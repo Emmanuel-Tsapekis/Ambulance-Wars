@@ -162,7 +162,18 @@ public class Player : MonoBehaviour {
 		//calculate path
 		calculatePath();
 	}
-	
+	public void recalculatePath(){
+		if (pathIndex < path.Count + 1) {
+			openList = new List<Node>();
+			closedList = new List<Node>();
+			path = new List<Node>();
+			pathIndex=0;
+			foreach(Node node in graph.nodes){
+				node.reset ();
+			}
+			povPathFind(transform.position,endTarget);
+		}
+	}
 	/////////////////////////////
 	void visitNode(Node node) {
 	foreach(Node neighbour in node.neighbours) {
