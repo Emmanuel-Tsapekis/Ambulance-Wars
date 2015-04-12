@@ -1,0 +1,52 @@
+# Blender MTL File: 'quaid&david.blend'
+# Material Count: 4
+
+newmtl Material__780
+Ns 7.843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd TX_Mn_NPC_David_Body_D.tga
+map_Ke TX_Mn_NPC_David_Body_RGB.tga
+map_Ks TX_Mn_NPC_David_Body_S.tga
+map_Ka TX_Mn_NPC_David_Body_N.tga
+map_d TX_Mn_NPC_David_Body_D.tga
+
+newmtl Material__785
+Ns 7.843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd TX_Mn_NPC_David_Head_D.tga
+map_Ke TX_Mn_NPC_David_Head_RGB.tga
+map_Disp TX_Mn_NPC_David_Head_N.tga
+map_d TX_Mn_NPC_David_Head_D.tga
+
+newmtl Material__851
+Ns 7.843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd TX_Mn_NPC_David_Hair_D.tga
+map_Ks TX_Mn_NPC_David_Hair_S.tga
+map_d TX_Mn_NPC_David_Hair_D.tga
+
+newmtl Material__877
+Ns 7.843137
+Ka 0.000000 0.000000 0.000000
+Kd 0.470400 0.470400 0.470400
+Ks 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd TX_BubblesInCatheter_D.tga
+map_d TX_BubblesInCatheter_D.tga

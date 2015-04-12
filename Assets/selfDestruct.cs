@@ -13,9 +13,8 @@ public class selfDestruct : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(sw.ElapsedMilliseconds > 50){
-			print ("Destroyed");
-			//Destroy(this);
+		if(sw.ElapsedMilliseconds > 15000){
+			Destroy(this.gameObject);
 			sw.Reset();
 			sw.Start ();
 		}
