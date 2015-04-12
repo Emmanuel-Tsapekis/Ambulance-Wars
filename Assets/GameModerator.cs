@@ -52,20 +52,14 @@ public class GameModerator : MonoBehaviour {
 			sw.Start();
 			if(angle){
 				changePOV();
-				Instantiate(obstacle, position, Quaternion.Euler(0f,90f,0f));
+				Network.Instantiate(obstacle, position, Quaternion.Euler(0f,90f,0f),0);
 			}
 			else{
 				changePOV();
-				Instantiate(obstacle, position, new Quaternion());
+				Network.Instantiate(obstacle, position, new Quaternion(),0);
 			}
-			networkView.RPC("PlaceVictim", RPCMode.All, victimPos);
+			Network.Instantiate(victim, victimPos, Quaternion.Euler(-90f,0f,0f),1);
 		}
-	}
-
-	[RPC]
-	void PlaceVictim(Vector3 victimPos)
-	{
-		Instantiate(victim, victimPos, Quaternion.Euler(-90f,0f,0f));
 	}
 
 	void changePOV(){
