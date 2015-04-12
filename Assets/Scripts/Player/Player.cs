@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
 	Vector3 endTarget;
 	Graph graph;
 	int pathIndex;
+	Node playerNode;
 	public string playerName;// { get; set; }
 	public int playerNumber { get; set; }
 	public int score = 0;
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour {
 		agent = GetComponent<SteeringAgent> ();
 		seekScript = GetComponent<Seek> ();
 		arriveScript = GetComponent<Arrive> ();
+		playerNode = GetComponent<Node> ();
 		openList = new List<Node>();
 		closedList = new List<Node>();
 		path = new List<Node> ();
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour {
 			return;
 		}
 		if (Input.GetMouseButtonUp (0) && graph.nodes!=null) {
+			resetPlayerNode();
 			openList = new List<Node>();
 			closedList = new List<Node>();
 			path = new List<Node>();
@@ -116,6 +119,18 @@ public class Player : MonoBehaviour {
 			//&& !Physics.Linecast (transform.position+transform.right*0.3f, position,obstacleMask)
 				//&& !Physics.Linecast (transform.position+transform.right*-0.3f, position,obstacleMask);
 	}
+	void resetPlayerNode(){
+		playerNode.reset ();
+		playerNode.neighbours = new List<Node>();
+	}
+
+	void findPlayerNodeNeighbours(){
+		foreach(Node toNode in graph.nodes){
+			if(!playerNode.neighbours.Contains(toNode) &&Graph.lineCastGolemFits(playerNode.transform.position,toNode.transform.position,playerNode.transform,obstacleMask)){
+				playerNode.neighbours.Add (toNode);					
+			}
+		}
+	}
 //	void gridPathFind(Vector3 start,Vector3 point){
 //		endTarget = point;
 //		//find goal node
@@ -150,15 +165,8 @@ public class Player : MonoBehaviour {
 				goalNode = node;
 			}
 		}
-		//find start node
-		shortestDistance = 1000;
-		foreach(Node node in graph.nodes){
-			float distance = Vector3.Distance(start,node.transform.position);
-			if(distance<shortestDistance && !Physics.Linecast(start,node.transform.position,obstacleMask)){
-				shortestDistance = distance;
-				startNode = node;
-			}
-		}
+		findPlayerNodeNeighbours ();
+		startNode = playerNode;
 		//calculate path
 		calculatePath();
 	}
@@ -168,6 +176,7 @@ public class Player : MonoBehaviour {
 			closedList = new List<Node>();
 			path = new List<Node>();
 			pathIndex=0;
+			resetPlayerNode();
 			foreach(Node node in graph.nodes){
 				node.reset ();
 			}
