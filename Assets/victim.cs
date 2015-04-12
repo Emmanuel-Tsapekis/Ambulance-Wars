@@ -35,7 +35,7 @@ public class victim : MonoBehaviour {
 	void OnTriggerEnter (Collider col) {
 		print (col.gameObject.tag);
 		if(col.gameObject.name == "Hospital"){
-			//send a message to update score
+			player.GetComponent<Player>().incrementScore((int)(random - sw.ElapsedMilliseconds)/100);
 			Destroy (this.gameObject);
 		}
 		else if(col.gameObject.name == "Player 1" || col.gameObject.tag == "Player 2" || col.gameObject.tag == "Player 3" || col.gameObject.tag == "Player 4"){

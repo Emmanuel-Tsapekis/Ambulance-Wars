@@ -241,9 +241,9 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	[RPC]
-	void incrementScore(){
-		++score;
+	public void incrementScore(int inc){
+		score += inc;
+		Debug.Log (playerName + "'s Score: " + score);
 	}
 
 	[RPC]
