@@ -8,6 +8,7 @@ public class victim : MonoBehaviour {
 	public TextMesh mesh;
 	public string timer;
 	public long longTime;
+	public bool tagged = false;
 	Stopwatch sw = new Stopwatch();
 	GameObject player;
 	int random;
@@ -31,6 +32,10 @@ public class victim : MonoBehaviour {
 		mesh.text = timer;
 	} 
 
+	public bool isTagged(GameObject obj){
+		return tagged && player == obj;
+	}
+
 	// Update is called once per frame
 	void OnTriggerEnter (Collider col) {
 		print (col.gameObject.tag);
@@ -41,6 +46,7 @@ public class victim : MonoBehaviour {
 		else if(col.gameObject.name == "Player 1" || col.gameObject.tag == "Player 2" || col.gameObject.tag == "Player 3" || col.gameObject.tag == "Player 4"){
 			player = col.gameObject;
 			transform.position = player.transform.position;
+			tagged = true;
 		}
 		
 	}

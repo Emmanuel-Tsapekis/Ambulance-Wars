@@ -60,6 +60,15 @@
      <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QueryAnimationController.cs" />
      <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QueryEmotionalController.cs" />
      <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QuerySoundController.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BTConditionNode.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BTLeafAttribute.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BTLeafNode.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BTNode.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BTNodeResult.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BTNotNode.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BTSelector.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BTSequence.cs" />
+     <Compile Include="Assets\Scripts\BehaviorTrees\BehaviorTree.cs" />
      <Compile Include="Assets\Scripts\GameLogic\GameModerator.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Hospital.cs" />
      <Compile Include="Assets\Scripts\GameLogic\rotate.cs" />
