@@ -16,12 +16,10 @@ public class Graph : MonoBehaviour {
 		//draw lines
 		GameObject lines = new GameObject("Lines");
 		foreach (Node fromNode in nodes) {
-			Vector3 before = fromNode.transform.position;
 			foreach(Node toNode in nodes){
-				float distance = Vector3.Distance(fromNode.transform.position,toNode.transform.position);
 				if(fromNode == toNode)
 					continue;
-				if(!fromNode.neighbours.Contains(toNode) &&lineCastGolemFits(fromNode.transform.position,toNode.transform.position,fromNode.transform)){
+				if(!fromNode.neighbours.Contains(toNode) &&lineCastGolemFits(fromNode.transform.position,toNode.transform.position,fromNode.transform,layerMasks)){
 					fromNode.neighbours.Add (toNode);
 					toNode.neighbours.Add (fromNode);//this makes the program signtly faster, as it will not compute this connection again (look at the "Contains" check in the if statement above)
 					LineRenderer line = new GameObject ("line").AddComponent<LineRenderer> ();
@@ -38,16 +36,13 @@ public class Graph : MonoBehaviour {
 					line.transform.position = Vector3.zero;
 				}
 			}
-			Vector3 after = fromNode.transform.position;
-			if(before!=after)
-				Debug.LogError("WTF");
 		}
 	}
 	//this isnt too great. might not use it
-	bool lineCastGolemFits(Vector3 position1, Vector3 position2, Transform transform){
-		return !Physics.Linecast (position1, position2,layerMasks)
-			&& !Physics.Linecast (position1+transform.right*0.3f, position2,layerMasks)
-			&& !Physics.Linecast (position1+transform.right*-0.3f, position2,layerMasks);
+	public static bool lineCastGolemFits(Vector3 position1, Vector3 position2, Transform transform, LayerMask obstacleLayer){
+		return !Physics.Linecast (position1, position2,obstacleLayer)
+			&& !Physics.Linecast (position1+transform.right*0.3f, position2,obstacleLayer)
+				&& !Physics.Linecast (position1+transform.right*-0.3f, position2,obstacleLayer);
 	}
 
 	// Update is called once per frame
