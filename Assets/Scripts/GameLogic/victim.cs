@@ -14,7 +14,7 @@ public class victim : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		random = Random.Range (5000, 30000);
+		random = Random.Range (5000, 45000);
 		AudioSource.PlayClipAtPoint(alarm,this.transform.position);
 		sw.Start ();
 	}
@@ -27,7 +27,7 @@ public class victim : MonoBehaviour {
 			transform.position = player.transform.position;
 		}
 		longTime = (random - sw.ElapsedMilliseconds);
-		timer = longTime/60 + ":" + longTime%60 + " ms";
+		timer = longTime/1000 + ":" + longTime%1000 + " ms";
 		mesh.text = timer;
 	} 
 
@@ -35,7 +35,7 @@ public class victim : MonoBehaviour {
 	void OnTriggerEnter (Collider col) {
 		print (col.gameObject.tag);
 		if(col.gameObject.name == "Hospital"){
-			player.GetComponent<Player>().incrementScore((int)(random - sw.ElapsedMilliseconds)/100);
+			player.GetComponent<Player>().incrementScore((int)(random - sw.ElapsedMilliseconds)/1000);
 			Destroy (this.gameObject);
 		}
 		else if(col.gameObject.name == "Player 1" || col.gameObject.tag == "Player 2" || col.gameObject.tag == "Player 3" || col.gameObject.tag == "Player 4"){

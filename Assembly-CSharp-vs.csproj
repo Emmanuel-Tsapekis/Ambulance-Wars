@@ -60,8 +60,11 @@
      <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QueryAnimationController.cs" />
      <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QueryEmotionalController.cs" />
      <Compile Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Scripts\QuerySoundController.cs" />
-     <Compile Include="Assets\GameModerator.cs" />
-     <Compile Include="Assets\Hospital.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\GameModerator.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Hospital.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\rotate.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\selfDestruct.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\victim.cs" />
      <Compile Include="Assets\Scripts\Movement\Align.cs" />
      <Compile Include="Assets\Scripts\Movement\Arrive.cs" />
      <Compile Include="Assets\Scripts\Movement\FlockingBehaviour.cs" />
@@ -76,10 +79,8 @@
      <Compile Include="Assets\Scripts\Pathfinding\Node.cs" />
      <Compile Include="Assets\Scripts\Pathfinding\NodeToroidalPairs.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerAI.cs" />
      <Compile Include="Assets\cameraSetup.cs" />
-     <Compile Include="Assets\rotate.cs" />
-     <Compile Include="Assets\selfDestruct.cs" />
-     <Compile Include="Assets\victim.cs" />
      <None Include="Assets\Art\ZRNAssets\license_en.txt" />
      <None Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Shaders\PQ_Skin.shader" />
      <None Include="Assets\Art\ZRNAssets\license_jp.txt" />
