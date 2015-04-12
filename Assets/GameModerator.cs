@@ -58,8 +58,14 @@ public class GameModerator : MonoBehaviour {
 				changePOV();
 				Instantiate(obstacle, position, new Quaternion());
 			}
-			Instantiate(victim, victimPos, Quaternion.Euler(-90f,0f,0f));
+			networkView.RPC("PlaceVictim", RPCMode.All, victimPos);
 		}
+	}
+
+	[RPC]
+	void PlaceVictim(Vector3 victimPos)
+	{
+		Instantiate(victim, victimPos, Quaternion.Euler(-90f,0f,0f));
 	}
 
 	void changePOV(){
