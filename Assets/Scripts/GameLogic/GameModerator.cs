@@ -63,17 +63,8 @@ public class GameModerator : MonoBehaviour {
 	}
 
 	void changePOV(){
-		if(player1 != null){
-			player1.recalculatePath();
-		}
-		if(player2 != null){
-			player2.recalculatePath();
-		}
-		if(player3 != null){
-			player3.recalculatePath();
-		}
-		if(player4 != null){
-			player4.recalculatePath();
+		foreach (Player player in GameObject.FindObjectsOfType<Player>()) {
+			player.recalculatePath();
 		}
 	}
 

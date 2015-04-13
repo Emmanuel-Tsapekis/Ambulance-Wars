@@ -28,7 +28,8 @@ public class victim : MonoBehaviour {
 			transform.position = player.transform.position;
 		}
 		longTime = (random - sw.ElapsedMilliseconds);
-		timer = longTime/1000 + ":" + longTime%1000 + " ms";
+		//timer = longTime/1000 + ":" + longTime%1000 + " ms";
+		timer = longTime/1000+"";
 		mesh.text = timer;
 	} 
 

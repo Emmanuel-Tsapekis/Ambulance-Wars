@@ -88,6 +88,8 @@ public class Player : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit[] hits = Physics.RaycastAll (ray);
 			Vector3 point = Vector3.zero;
+			if(hits.Length==0)
+				return;
 			point = hits[0].point;
 			foreach(Node node in graph.nodes){
 				node.reset ();
@@ -170,7 +172,16 @@ public class Player : MonoBehaviour {
 		//calculate path
 		calculatePath();
 	}
+
+	[RPC]
 	public void recalculatePath(){
+		if (!networkView.isMine) {
+			networkView.RPC ("recalculatePath", RPCMode.OthersBuffered, null);
+			return;
+		}
+		if (path == null || path.Count == 0)
+			return;
+
 		if (pathIndex < path.Count + 1) {
 			openList = new List<Node>();
 			closedList = new List<Node>();
@@ -250,8 +261,11 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	[RPC]
 	public void incrementScore(int inc){
 		score += inc;
+		if(networkView.isMine)
+			networkView.RPC ("incrementScore", RPCMode.OthersBuffered, inc);
 		Debug.Log (playerName + "'s Score: " + score);
 	}
 
