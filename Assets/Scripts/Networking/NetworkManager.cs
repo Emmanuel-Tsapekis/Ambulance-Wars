@@ -12,6 +12,9 @@ public class NetworkManager : MonoBehaviour
 	private bool isChoice;
 	private bool isOnline;
 
+	public TextMesh mesh;
+	public Font font;
+
 	//Online Multiplayer Variables
 	private const string typeName = "COMP476Network";
 	private string gameName;
@@ -40,14 +43,19 @@ public class NetworkManager : MonoBehaviour
 		{
 			if(isChoice == false) {
 
-				//playerName = GUI.TextField(new Rect(100,50,250,30),playerName);
+				GUIStyle style2 = new GUIStyle();
+				style2.alignment = TextAnchor.MiddleCenter;
+				style2.fontSize = 96;
+				style2.font = font;
 
-				if(GUI.Button(new Rect(100, 100, 250, 30), "Online Multiplayer")) {
+				GUI.Label(new Rect(Screen.width/6, Screen.height/3 - 60, Screen.width/1.5f, 30), "<Color=red>" + mesh.text + "</Color>", style2);
+
+				if(GUI.Button(new Rect(Screen.width/2.5f, Screen.height/3 + 30, 250, 30), "Online Multiplayer")) {
 					isChoice = true;
 					isOnline = true;
 				}
 				
-				if(GUI.Button(new Rect(100,150,250,30),"Local Multiplayer")) {
+				if(GUI.Button(new Rect(Screen.width/2.5f,Screen.height/3 + 60 ,250,30),"Local Multiplayer")) {
 					isChoice = true;
 					isOnline = false;
 				}
@@ -56,21 +64,21 @@ public class NetworkManager : MonoBehaviour
 			//Online Multiplayer Menu
 			if(isChoice && isOnline) {
 
-				playerName = GUI.TextField(new Rect(100,50,250,30),playerName);
+				playerName = GUI.TextField(new Rect(Screen.width/2.5f,Screen.height/6,250,30),playerName);
 
-				gameName = GUI.TextField(new Rect(100,100, 250, 30), gameName);
+				gameName = GUI.TextField(new Rect(Screen.width/2.5f,Screen.height/6 + 50, 250, 30), gameName);
 
-				if (GUI.Button(new Rect(100, 150, 250, 30), "Start Server"))
+				if (GUI.Button(new Rect(Screen.width/2.5f, Screen.height/6 + 100, 250, 30), "Start Server"))
 					StartOnlineServer();
 				
-				if (GUI.Button(new Rect(100, 200, 250, 50), "Refresh Hosts"))
+				if (GUI.Button(new Rect(Screen.width/2.5f, Screen.height/6 + 150, 250, 50), "Refresh Hosts"))
 					RefreshHostList();
 				
 				if (hostList != null)
 				{
 					for (int i = 0; i < hostList.Length; i++)
 					{
-						if (GUI.Button(new Rect(400, 100 + (80 * i), 250, 50), hostList[i].gameName))
+						if (GUI.Button(new Rect(Screen.width/1.5f, Screen.height/6 + 350, 250, 50), hostList[i].gameName))
 							JoinServer(hostList[i]);
 					}
 				}
@@ -79,16 +87,16 @@ public class NetworkManager : MonoBehaviour
 			//Local Multiplayer Menu
 			else if(isChoice && isOnline == false) {
 
-				playerName = GUI.TextField(new Rect(100,50,250,30),playerName);
+				playerName = GUI.TextField(new Rect(Screen.width/2.5f,Screen.height/6,250,30),playerName);
 
-				if (GUI.Button(new Rect(100, 100, 250, 30), "Start Server"))
+				if (GUI.Button(new Rect(Screen.width/6, Screen.height/2.5f + 50, 250, 30), "Start Server"))
 					StartLocalServer();
 				
-				ipAddress = GUI.TextField(new Rect(100,150,250,30),ipAddress);
+				ipAddress = GUI.TextField(new Rect(Screen.width/2.5f,Screen.height/6 + 100,250,30),ipAddress);
 				
-				portNumber_string = GUI.TextField(new Rect(100,200,250,30),portNumber_string);
+				portNumber_string = GUI.TextField(new Rect(Screen.width/2.5f,Screen.height/6 + 150,250,30),portNumber_string);
 				
-				if(GUI.Button(new Rect(100,250,250,30), "Join"))
+				if(GUI.Button(new Rect(Screen.width/1.5f,Screen.height/6 + 200,250,30), "Join"))
 					JoinIP(ipAddress,portNumber_string);
 			}
 			

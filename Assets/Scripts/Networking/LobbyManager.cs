@@ -8,19 +8,19 @@ public class LobbyManager : MonoBehaviour {
 	GUIStyle nameBox;
 
 	void OnGUI() {
-		GUI.Box(new Rect(100,50,250,30), "Player 1");
-		GUI.Box (new Rect(100,80,250,30), ""+playerName[1]);
+		GUI.Box(new Rect(Screen.width/4,Screen.height/3,250,30), "Player 1");
+		GUI.Box (new Rect(Screen.width/4,Screen.height/3 + 30,250,30), ""+playerName[1]);
 
-		GUI.Box(new Rect(500,50,250,30), "Player 2");
-		GUI.Box (new Rect(500,80,250,30), ""+playerName[2]);
+		GUI.Box(new Rect(2*Screen.width/4,Screen.height/3,250,30), "Player 2");
+		GUI.Box (new Rect(2*Screen.width/4,Screen.height/3 + 30,250,30), ""+playerName[2]);
 
 		if (Network.isServer) {
-			if (GUI.Button (new Rect (300, 250, 250, 30), "Start"))
+			if (GUI.Button (new Rect (1.5f*Screen.width/4, Screen.height/1.5f, 250, 30), "Start"))
 				start = true;
 		}
 
 		if (Network.isClient) {
-			GUI.Box (new Rect (300, 250, 250, 30), "Waiting for Host to Start");
+			GUI.Box (new Rect (1.5f*Screen.width/4, Screen.height/1.5f, 250, 30), "Waiting for Host to Start");
 		}
 
 	}
