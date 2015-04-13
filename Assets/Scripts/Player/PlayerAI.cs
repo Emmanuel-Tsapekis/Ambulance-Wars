@@ -66,15 +66,15 @@ public class PlayerAI : MonoBehaviour {
 		return false;
 	}
 	
-	private victim bestOption(){
+	public victim bestOption(){
 		victim[] victims = GameObject.FindObjectsOfType(typeof(victim)) as victim[];
 		victim bestOption = victims[0];
 		int bestIndex = 0;
-		GameObject hospital = GameObject.FindGameObjectWithTag("Hospital");
-		int[] distanceToVictim = new int[victims.Length-1];
-		int[] distanceFromVictimToHospital = new int[victims.Length-1];
-		int[] actualDistance = new int[victims.Length-1];
-		float[] heuristic = new float[victims.Length-1];
+		GameObject hospital = GameObject.Find("Hospital");
+		int[] distanceToVictim = new int[victims.Length];
+		int[] distanceFromVictimToHospital = new int[victims.Length];
+		int[] actualDistance = new int[victims.Length];
+		float[] heuristic = new float[victims.Length];
 		
 		//Find the total distance each for an ambulance to reach each victim, victims[i] has a actualDistance[i]
 		for(int i = 0; i < victims.Length; i++){

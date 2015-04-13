@@ -20,6 +20,7 @@ public class GameModerator : MonoBehaviour {
 	GameObject[] waypoints;
 	GameObject[] Rwaypoints;
 	GameObject[] victimPoints;
+	bool[] victimPointsUsed;
 
 	GameObject obstacle1;
 	GameObject obstacle2;
@@ -35,6 +36,7 @@ public class GameModerator : MonoBehaviour {
 	int limitVictims = 5;
 
 	Stopwatch sw = new Stopwatch();
+	Stopwatch sw2 = new Stopwatch();
 
 
 	// Use this for initialization
@@ -46,13 +48,17 @@ public class GameModerator : MonoBehaviour {
 		player4 = (Player) GameObject.FindObjectOfType(typeof(Player));
 		waypoints = GameObject.FindGameObjectsWithTag("waypoints");
 		victimPoints = GameObject.FindGameObjectsWithTag("Victims points");
+		victimPointsUsed = new bool[victimPoints.Length];
+		for(int i = 0; i < victimPointsUsed.Length; i++){
+			victimPointsUsed[i] = false;
+		}
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		position = positionObstacle();
-		victimPos = victimPlacement();
 		if(position != Vector3.zero && sw.ElapsedMilliseconds > 4000){
+			victimPos = victimPlacement();
 			sw.Stop ();
 			sw.Reset();
 			sw.Start();
@@ -75,6 +81,11 @@ public class GameModerator : MonoBehaviour {
 				Rposition = positionRObstacle();
 				Network.Instantiate(obstacle, Rposition, Quaternion.Euler(0f,90f,0f),0);
 			}
+			if(sw2.ElapsedMilliseconds > 20000){
+				for(int i = 0; i < victimPointsUsed.Length; i++){
+					victimPointsUsed[i] = false;
+				}
+			}
 		}
 	}
 
@@ -89,17 +100,50 @@ public class GameModerator : MonoBehaviour {
 			victimPoints = GameObject.FindObjectsOfType(typeof(Node)) as GameObject[];
 		}
 		if(hard){
-			GameObject temp = victimPoints[0];
-			for(int i = 0; i < victimPoints.Length; i++){
-				if(Vector3.Distance(player1.transform.position, victimPoints[i].transform.position) > Vector3.Distance(player1.transform.position, temp.transform.position)
-				   && Physics.CheckSphere(temp.transform.position, 5f,victimMask)){
-					temp = victimPoints[i];
-				}
-			}
-			return new Vector3(temp.transform.position.x, 1f, temp.transform.position.z);
+			return bestOption(player1.gameObject).transform.position;
 		}
 		int random = Random.Range (0, victimPoints.Length-1);
 		return new Vector3(victimPoints[random].transform.position.x, 1f, victimPoints[random].transform.position.z);
+	}
+
+	public GameObject bestOption(GameObject player){
+		if(victimPoints.Length > 1){
+			GameObject bestOption = victimPoints[0];
+			int bestIndex = 0;
+			GameObject hospital = GameObject.Find("Hospital");
+			int[] distanceToVictim = new int[victimPoints.Length];
+			int[] distanceFromVictimToHospital = new int[victimPoints.Length];
+			int[] actualDistance = new int[victimPoints.Length];
+			float[] heuristic = new float[victimPoints.Length];
+			
+			//Find the total distance each for an ambulance to reach each victim, victims[i] has a actualDistance[i]
+			for(int i = 0; i < victimPoints.Length; i++){
+				distanceToVictim[i] = (int) Vector3.Distance(player.transform.position, victimPoints[i].transform.position);
+				distanceFromVictimToHospital[i] = (int) Vector3.Distance(victimPoints[i].transform.position, hospital.transform.position);
+				actualDistance[i] = (int) distanceToVictim[i] + distanceFromVictimToHospital[i];
+			}
+			
+			//Find the time it takes to reach each victim
+			for(int i = 0; i < victimPoints.Length; i++){
+				//We assume that it requires the player 20ms to do 1 step and that on average a victim lives for 10 seconds
+				heuristic[i] = (float) actualDistance[i]*0.02f/10000; 
+			}
+			
+			for(int i = 0; i < victimPoints.Length; i++){
+				//Find the victim that has the lowest heuristic value
+				if(heuristic[i] >= heuristic[bestIndex] && victimPointsUsed[i] == false){
+					bestOption = victimPoints[bestIndex];
+					victimPointsUsed[i] = true;
+					victimPointsUsed[bestIndex] = false;
+					bestIndex = i;
+					
+				}
+			}
+			sw2.Start();
+
+			return bestOption;
+		}
+		return null;
 	}
 
 	Vector3 positionObstacle(){
@@ -108,6 +152,10 @@ public class GameModerator : MonoBehaviour {
 		}
 		if(victimPoints == null){
 			victimPoints = GameObject.FindObjectsOfType(typeof(Node)) as GameObject[];
+			victimPointsUsed = new bool[victimPoints.Length];
+			for(int i = 0; i < victimPointsUsed.Length; i++){
+				victimPointsUsed[i] = false;
+			}
 		}
 		if(hard){
 			GameObject temp = waypoints[0];
