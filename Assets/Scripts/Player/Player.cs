@@ -26,8 +26,14 @@ public class Player : Character {
 	}
 
 	void OnGUI(){
+		if (!networkView.isMine)
+			return;
+		int height = Screen.height / 8;
+		if (tag == "Player 2") {
+			height*=2;
+		}
 		if(Application.loadedLevelName == "Game"){
-			GUI.Box(new Rect(20, Screen.height/8, 300, 30), playerName + "'s Score: " + score);
+			GUI.Box(new Rect(20, height, 300, 30), playerName + "'s Score: " + score);
 		}
 	}
 

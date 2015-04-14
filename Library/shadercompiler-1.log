@@ -1,14 +1,14 @@
-Base path: C:/Program Files (x86)/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-1-400112
+Base path: G:/Unity/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-1-7644
 Cmd: getPlatforms
 Cmd: preprocess
-  insize=2393 outsize=1340 ok=1
+  insize=2508 outsize=1371 ok=1
 Cmd: compileSnippet
   error: 2 plat 4 at (80): 'vert': output parameter 'o' not completely initialized
   error: 1 plat 4 at (109): implicit truncation of vector type
   api=4 type=0 insize=6535 outsize=0 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=0
 Cmd: preprocess
-  insize=3008 outsize=1536 ok=1
+  insize=3140 outsize=1574 ok=1
 Cmd: compileSnippet
   error: 2 plat 4 at (91): 'vert': output parameter 'o' not completely initialized
   error: 1 plat 4 at (123): implicit truncation of vector type
@@ -17,7 +17,7 @@ Cmd: compileSnippet
   error: 1 plat 4 at (126): implicit truncation of vector type
   api=4 type=0 insize=6971 outsize=0 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=0
 Cmd: preprocess
-  insize=3504 outsize=1799 ok=1
+  insize=3645 outsize=1836 ok=1
 Cmd: compileSnippet
   error: 2 plat 4 at (96): 'vert': output parameter 'o' not completely initialized
   error: 1 plat 4 at (124): 'texCUBE': implicit truncation of vector type
@@ -28,8 +28,12 @@ Cmd: compileSnippet
   error: 1 plat 4 at (135): implicit truncation of vector type
   api=4 type=0 insize=7591 outsize=0 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=0
 Cmd: preprocess
-  insize=2433 outsize=1359 ok=1
+  insize=2549 outsize=1393 ok=1
 Cmd: compileSnippet
   error: 2 plat 4 at (81): 'vert': output parameter 'o' not completely initialized
   error: 1 plat 4 at (110): implicit truncation of vector type
   api=4 type=0 insize=6445 outsize=0 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=0
+Unhandled exception: Readfile from pipe failed. GLE=The pipe has been ended.
+
+
+Quitting shader compiler process

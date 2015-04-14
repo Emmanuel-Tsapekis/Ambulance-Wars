@@ -1,14 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\Death.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\Player.cs">
     <Files>
-      <File FileName="AmbulanceWars.sln" Line="40" Column="1" />
-      <File FileName="Assets\Scripts\Player\Player.cs" Line="18" Column="12" />
-      <File FileName="Assets\Scripts\Player\Death.cs" Line="8" Column="36" />
-      <File FileName="Assets\Scripts\Player\Character.cs" Line="54" Column="32" />
-      <File FileName="Assets\Scripts\Pathfinding\Graph.cs" Line="8" Column="30" />
-      <File FileName="Assets\Scripts\Pathfinding\Node.cs" Line="18" Column="25" />
-      <File FileName="Assets\Scripts\Movement\SteeringAgent.cs" Line="15" Column="15" />
+      <File FileName="Assets\Scripts\Player\Player.cs" Line="30" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
