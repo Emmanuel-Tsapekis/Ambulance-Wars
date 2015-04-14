@@ -89,6 +89,7 @@
      <Compile Include="Assets\Scripts\Player\Death.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAI.cs" />
+     <Compile Include="Assets\WinManager.cs" />
      <Compile Include="Assets\cameraSetup.cs" />
      <None Include="Assets\Art\ZRNAssets\license_en.txt" />
      <None Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Shaders\PQ_Skin.shader" />
