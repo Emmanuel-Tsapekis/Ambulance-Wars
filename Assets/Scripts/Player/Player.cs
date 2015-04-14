@@ -7,6 +7,7 @@ public class Player : Character {
 	public int playerNumber { get; set; }
 	public int score = 0;
 	public bool pickedVictim = false;
+	public TextMesh mesh;
 
 	protected override void decideTarget(){
 		if (Input.GetMouseButtonUp (0) && graph.nodes!=null) {
@@ -21,6 +22,25 @@ public class Player : Character {
 				node.reset ();
 			}
 			povPathFind(transform.position,point);
+		}
+	}
+
+	void OnGUI(){
+		if(Application.loadedLevelName == "Game"){
+			GUI.Box(new Rect(20, Screen.height/8, 300, 30), playerName + "'s Score: " + score);
+		}
+	}
+
+	void Update(){
+		if(score > 100){
+			Application.LoadLevel(3);
+		}
+	}
+
+	[RPC]
+	public void displayGain (int gain){
+		if(networkView.isMine){
+			mesh.text = "+ $" + gain;
 		}
 	}
 
