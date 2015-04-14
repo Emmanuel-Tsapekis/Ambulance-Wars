@@ -1,0 +1,10 @@
+<behavior-tree>
+	<sequence>
+		<leaf name="idle" />
+		<leaf name="wander" />
+		<leaf name="choose-victim" />
+		<leaf name="idle" />
+		<leaf name="hunt-victim" />
+		<leaf name="attack" />
+	</sequence>
+</behavior-tree>
