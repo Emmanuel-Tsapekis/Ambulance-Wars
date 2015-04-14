@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{F470A2AF-BBDD-05C2-3FE8-AF70385E3A51}</ProjectGuid>
+	<ProjectGuid>{C8F77E97-E13E-2ED7-CDE3-DEC2B244C146}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -93,6 +93,7 @@
      <None Include="Assets\Art\ZRNAssets\license_en.txt" />
      <None Include="Assets\Art\ZRNAssets\PQAssets\Query-Chan\Shaders\PQ_Skin.shader" />
      <None Include="Assets\Art\ZRNAssets\license_jp.txt" />
+     <None Include="Assets\death-behavior.xml" />
      <None Include="Assets\Art\ZRNAssets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Art\ZRNAssets\005339_08932_25_14\Shaders\su_Double_and_Clip.shader" />
      <None Include="Assets\Art\ZRNAssets\PQAssets\license_jp.txt" />

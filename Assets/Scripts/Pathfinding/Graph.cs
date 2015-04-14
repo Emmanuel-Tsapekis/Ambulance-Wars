@@ -9,6 +9,11 @@ public class Graph : MonoBehaviour {
 
 	// Use this for initialization
 	void LateUpdate () {
+		LoadNodes ();
+	}
+
+	public void LoadNodes()
+	{
 		if(nodes == null || nodes.Count==0){
 			nodes = new List<Node> ();
 			GameObject pov = GameObject.Find ("Points of Visibility");

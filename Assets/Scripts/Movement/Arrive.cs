@@ -5,13 +5,13 @@ using System;
 public class Arrive : SteeringBehavior
 {
   	public Vector3 target;
-	Player player;
+	Character player;
     public float slowRadius;
     public float arriveRadius;
 
     void Start()
     {
-		player = GetComponent<Player> ();
+		player = GetComponent<Character> ();
 		target = player.target;
     }
 

@@ -1,8 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\Player.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BehaviorTrees\BTSequence.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\Player.cs" Line="30" Column="4" />
+      <File FileName="Assets\Scripts\Player\Death.cs" Line="70" Column="18" />
+      <File FileName="Assets\Scripts\Player\Player.cs" Line="71" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerAI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BehaviorTrees\BehaviorTree.cs" Line="186" Column="4" />
+      <File FileName="Assets\Scripts\GameLogic\victim.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\Character.cs" Line="56" Column="34" />
+      <File FileName="Assets\Scripts\Pathfinding\Graph.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BehaviorTrees\BTSelector.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BehaviorTrees\BTSequence.cs" Line="24" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

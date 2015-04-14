@@ -11,7 +11,7 @@ public class victim : MonoBehaviour {
 	public long longTime;
 	public bool tagged = false;
 	Stopwatch sw = new Stopwatch();
-	GameObject player;
+	public GameObject player;
 	int random;
 	
 	// Use this for initialization
@@ -53,6 +53,9 @@ public class victim : MonoBehaviour {
 			player = col.gameObject;
 			transform.position = player.transform.position;
 			tagged = true;
+		}
+		else if(col.gameObject.tag == "Death"){
+			Destroy (this.gameObject);
 		}
 		
 	}
