@@ -12,6 +12,7 @@ public class victim : MonoBehaviour {
 	public bool tagged = false;
 	Stopwatch sw = new Stopwatch();
 	public GameObject player;
+	public GameObject[] playerPartsToBeInvisible;
 	int random;
 	
 	// Use this for initialization
@@ -23,7 +24,7 @@ public class victim : MonoBehaviour {
 
 	void FixedUpdate(){
 		if(sw.ElapsedMilliseconds > random){
-			Destroy(this.gameObject);
+			Network.Destroy(this.gameObject);
 		}
 		if(player != null){
 			transform.position = player.transform.position;
@@ -47,16 +48,23 @@ public class victim : MonoBehaviour {
 			mesh.text = "+ $"+ gain;
 			player.GetComponent<Player>().incrementScore(gain);
 			player.GetComponent<Player>().displayGain(gain);
-			Destroy (this.gameObject);
+			Network.Destroy (this.gameObject);
 		}
-		else if(col.gameObject.name == "Player 1" || col.gameObject.tag == "Player 2" || col.gameObject.tag == "Player 3" || col.gameObject.tag == "Player 4"){
+		else if((col.gameObject.name == "Player 1" || col.gameObject.tag == "Player 2" || col.gameObject.tag == "Player 3" || col.gameObject.tag == "Player 4") && !tagged){
 			player = col.gameObject;
 			transform.position = player.transform.position;
 			tagged = true;
+			makeInvisible();
 		}
-		else if(col.gameObject.tag == "Death"){
-			Destroy (this.gameObject);
+		else if(col.gameObject.tag == "Death" && !tagged){
+			Network.Destroy (this.gameObject);
 		}
 		
+	}
+
+	void makeInvisible(){
+		foreach (GameObject go in playerPartsToBeInvisible) {
+			go.renderer.enabled = false;
+		}
 	}
 }
